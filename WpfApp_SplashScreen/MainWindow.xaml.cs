@@ -26,12 +26,12 @@ namespace WpfApp_SplashScreen
         {
             splashScreen.Show(false, true);
             InitializeComponent(); 
-            Thread hiddenSplashScreenThread = new Thread(ThreadHiddenSplashScreen);
-            hiddenSplashScreenThread.Start();
+            Thread threadClosedSplashScreen = new Thread(ThreadMethodClosedSplashScreen);
+            threadClosedSplashScreen.Start();
         }
-        private void ThreadHiddenSplashScreen()
+        private void ThreadMethodClosedSplashScreen()
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(3000);
             splashScreen.Close(TimeSpan.FromMilliseconds(0));
         }
     }
