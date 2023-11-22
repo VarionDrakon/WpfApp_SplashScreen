@@ -25,7 +25,7 @@ namespace WpfApp_SplashScreen
         public MainWindow()
         {
             splashScreen.Show(false, true);
-            InitializeComponent();
+            InitializeComponent(); 
             Thread hiddenSplashScreenThread = new Thread(ThreadHiddenSplashScreen);
             hiddenSplashScreenThread.Start();
         }
