@@ -21,12 +21,18 @@ namespace WpfApp_SplashScreen
     /// </summary>
     public partial class MainWindow : Window
     {
+        private SplashScreen splashScreen = new SplashScreen("Resources/splash screen.png");
         public MainWindow()
         {
-            SplashScreen splashScreen = new SplashScreen("Resources/splash screen.png");
             splashScreen.Show(false, true);
             InitializeComponent();
-            splashScreen.Close(TimeSpan.FromSeconds(3));
+            Thread hiddenSplashScreenThread = new Thread(ThreadHiddenSplashScreen);
+            hiddenSplashScreenThread.Start();
+        }
+        private void ThreadHiddenSplashScreen()
+        {
+            Thread.Sleep(5000);
+            splashScreen.Close(TimeSpan.FromMilliseconds(0));
         }
     }
 }
